@@ -22,14 +22,18 @@ public class OpenFeignForQuotersExtendedApplication {
 
     @EventListener(ApplicationStartedEvent.class)
     public void makeRequestToQuoterExtend() {
-//        String response = quoterExtendClient.getRandom();
-//        System.out.println(response);
 
-        String id = quoterExtendClient.getId(3);
-        System.out.println(id);
+        String randomQuote = quoterExtendClient.getRandomQuote();
+        System.out.println(randomQuote);
 
-//        String showALlQuots = quoterExtendClient.showALlQuots();
-//        System.out.println(showALlQuots);
+        String byId = quoterExtendClient.getById(3);
+        System.out.println(byId);
+
+        String allQuotes = quoterExtendClient.showAllQuotes();
+        System.out.println(allQuotes);
+
+        String byParam = quoterExtendClient.getByParam(7);
+        System.out.println(byParam);
+
     }
-
 }
