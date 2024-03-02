@@ -1,15 +1,13 @@
 package com.example.openfeignforquotersextended;
 
 import org.springframework.cloud.openfeign.FeignClient;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.*;
 
 @FeignClient(value = "quoter-extend-server-client")
 interface QuoterExtendProxy {
 
-    @RequestMapping("/api/random")
+    @GetMapping("/api/random")
     String getRandomQuote();
 
     @GetMapping("/api/{id}")
@@ -20,4 +18,7 @@ interface QuoterExtendProxy {
 
     @GetMapping("/apiWithRequestParam")
     String getByParam(@RequestParam("id") long id);
+
+    @PostMapping("/api/quote")
+    ResponseEntity<String> addQuote(@RequestBody Quote quote);
 }

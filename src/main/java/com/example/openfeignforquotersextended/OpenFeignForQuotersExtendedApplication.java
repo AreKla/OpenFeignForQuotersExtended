@@ -5,6 +5,7 @@ import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
 import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.event.EventListener;
+import org.springframework.http.ResponseEntity;
 
 @SpringBootApplication
 @EnableFeignClients
@@ -34,6 +35,9 @@ public class OpenFeignForQuotersExtendedApplication {
 
         String byParam = quoterExtendClient.getByParam(7);
         System.out.println(byParam);
+
+        ResponseEntity<String> stringResponseEntity = quoterExtendClient.addQuote(new Quote("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"));
+        System.out.println(stringResponseEntity.getBody());
 
     }
 }
