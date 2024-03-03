@@ -30,19 +30,18 @@ public class OpenFeignForQuotersExtendedApplication {
 //        String byId = quoterExtendClient.getById(3);
 //        System.out.println(byId);
 
-        String allQuotes = quoterExtendClient.showAllQuotes();
-        System.out.println(allQuotes);
+//        String allQuotes = quoterExtendClient.showAllQuotes();
+//        System.out.println(allQuotes);
 
-//        quoterExtendClient.deleteById(2);
+//        quoterExtendClient.deleteById(3);
 
-//        String allQuotes2 = quoterExtendClient.showAllQuotes();
-//        System.out.println(allQuotes2);
-
-//        String byParam = quoterExtendClient.getByParam(7);
+//        String byParam = quoterExtendClient.getByParam(4);
 //        System.out.println(byParam);
 
-//        ResponseEntity<String> stringResponseEntity = quoterExtendClient.addQuote(new Quote("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"));
-//        System.out.println(stringResponseEntity.getBody());
+
+        // TO DO ->REPAIR THAT CODE
+        ResponseEntity<String> stringResponseEntity = quoterExtendClient.addQuote("{\"content\":\"YourQuoteContent\"}");
+        System.out.println(stringResponseEntity.getBody());
 
     }
 }

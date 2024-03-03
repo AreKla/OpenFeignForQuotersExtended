@@ -16,13 +16,17 @@ interface QuoterExtendProxy {
     @GetMapping("/api")
     String showAllQuotes();
 
+
     @GetMapping("/apiWithRequestParam")
     String getByParam(@RequestParam("id") long id);
 
+    // ADD - IDK
     @PostMapping("/api/quote")
-    ResponseEntity<String> addQuote(@RequestBody Quote quote);
+    ResponseEntity<String> addQuote(@RequestBody String quote);
 
     @DeleteMapping("/api/quote/{id}")
-    String deleteById(@PathVariable("id") long id);
+    ResponseEntity<String> deleteById(@PathVariable("id") long id);
 
+    @GetMapping("/apiWithHeader")
+    String getAllWithHeader(@RequestHeader("requestId") String requestId);
 }
