@@ -24,20 +24,25 @@ public class OpenFeignForQuotersExtendedApplication {
     @EventListener(ApplicationStartedEvent.class)
     public void makeRequestToQuoterExtend() {
 
-        String randomQuote = quoterExtendClient.getRandomQuote();
-        System.out.println(randomQuote);
+//        String randomQuote = quoterExtendClient.getRandomQuote();
+//        System.out.println(randomQuote);
 
-        String byId = quoterExtendClient.getById(3);
-        System.out.println(byId);
+//        String byId = quoterExtendClient.getById(3);
+//        System.out.println(byId);
 
         String allQuotes = quoterExtendClient.showAllQuotes();
         System.out.println(allQuotes);
 
-        String byParam = quoterExtendClient.getByParam(7);
-        System.out.println(byParam);
+//        quoterExtendClient.deleteById(2);
 
-        ResponseEntity<String> stringResponseEntity = quoterExtendClient.addQuote(new Quote("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"));
-        System.out.println(stringResponseEntity.getBody());
+//        String allQuotes2 = quoterExtendClient.showAllQuotes();
+//        System.out.println(allQuotes2);
+
+//        String byParam = quoterExtendClient.getByParam(7);
+//        System.out.println(byParam);
+
+//        ResponseEntity<String> stringResponseEntity = quoterExtendClient.addQuote(new Quote("YYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYYY"));
+//        System.out.println(stringResponseEntity.getBody());
 
     }
 }

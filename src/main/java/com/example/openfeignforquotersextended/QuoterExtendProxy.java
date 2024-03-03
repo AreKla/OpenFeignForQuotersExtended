@@ -21,4 +21,8 @@ interface QuoterExtendProxy {
 
     @PostMapping("/api/quote")
     ResponseEntity<String> addQuote(@RequestBody Quote quote);
+
+    @DeleteMapping("/api/quote/{id}")
+    String deleteById(@PathVariable("id") long id);
+
 }
