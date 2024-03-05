@@ -1,5 +1,6 @@
 package com.example.openfeignforquotersextended;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
@@ -11,11 +12,12 @@ import org.springframework.http.ResponseEntity;
 @EnableFeignClients
 public class OpenFeignForQuotersExtendedApplication {
 
+    @Autowired
     QuoterExtendProxy quoterExtendClient;
 
-    public OpenFeignForQuotersExtendedApplication(QuoterExtendProxy quoterExtendClient) {
-        this.quoterExtendClient = quoterExtendClient;
-    }
+//    public OpenFeignForQuotersExtendedApplication(QuoterExtendProxy quoterExtendClient) {
+//        this.quoterExtendClient = quoterExtendClient;
+//    }
 
     public static void main(String[] args) {
         SpringApplication.run(OpenFeignForQuotersExtendedApplication.class, args);
@@ -24,24 +26,31 @@ public class OpenFeignForQuotersExtendedApplication {
     @EventListener(ApplicationStartedEvent.class)
     public void makeRequestToQuoterExtend() {
 
-//        String randomQuote = quoterExtendClient.getRandomQuote();
-//        System.out.println(randomQuote);
+        // ---> SHOW ALL<---
+        String showAllQuotes = quoterExtendClient.showAllQuotes();
+        System.out.println(showAllQuotes);
 
-//        String byId = quoterExtendClient.getById(3);
-//        System.out.println(byId);
+        // --->GET BY ID<---
+        String byId = quoterExtendClient.getById(3);
+        System.out.println(byId);
 
-//        String allQuotes = quoterExtendClient.showAllQuotes();
-//        System.out.println(allQuotes);
+        // --->GET RANDOM QUOTE<---
+        String randomQuote = quoterExtendClient.getRandomQuote();
+        System.out.println(randomQuote);
 
-//        quoterExtendClient.deleteById(3);
+        // --->GET BY PARAM<---
+        String byParam = quoterExtendClient.getByParam(3);
+        System.out.println(byParam);
 
-//        String byParam = quoterExtendClient.getByParam(4);
-//        System.out.println(byParam);
+        // --->GET BY HEADER<---
+        String withHeader = quoterExtendClient.getAllWithHeader();
+        System.out.println(withHeader);
 
+        // --->ADD QUOTE<---
+        QuoteExtendResult newQuote = new QuoteExtendResult("Is that OK?");
+        ResponseEntity<QuoteExtendResponse> responseEntity = quoterExtendClient.addQuote(newQuote);
 
-        // TO DO ->REPAIR THAT CODE
-        ResponseEntity<String> stringResponseEntity = quoterExtendClient.addQuote("{\"content\":\"YourQuoteContent\"}");
-        System.out.println(stringResponseEntity.getBody());
-
+        // --->DELETE BY ID <---
+        quoterExtendClient.deleteById(14);
     }
 }
