@@ -12,12 +12,11 @@ import org.springframework.http.ResponseEntity;
 @EnableFeignClients
 public class OpenFeignForQuotersExtendedApplication {
 
-    @Autowired
     QuoterExtendProxy quoterExtendClient;
 
-//    public OpenFeignForQuotersExtendedApplication(QuoterExtendProxy quoterExtendClient) {
-//        this.quoterExtendClient = quoterExtendClient;
-//    }
+    public OpenFeignForQuotersExtendedApplication(QuoterExtendProxy quoterExtendClient) {
+        this.quoterExtendClient = quoterExtendClient;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(OpenFeignForQuotersExtendedApplication.class, args);
