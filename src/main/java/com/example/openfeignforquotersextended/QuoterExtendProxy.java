@@ -2,9 +2,11 @@ package com.example.openfeignforquotersextended;
 
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
+import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
 @FeignClient(value = "quoter-extend-server-client")
+@Component
 interface QuoterExtendProxy {
 
     @GetMapping("/api")
@@ -27,6 +29,5 @@ interface QuoterExtendProxy {
 
     @DeleteMapping("/api/quote/{id}")
     void deleteById(@PathVariable("id") long id);
-
 
 }

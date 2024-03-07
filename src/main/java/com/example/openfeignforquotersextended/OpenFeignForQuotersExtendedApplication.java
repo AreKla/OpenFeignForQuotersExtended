@@ -1,6 +1,5 @@
 package com.example.openfeignforquotersextended;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
@@ -12,12 +11,11 @@ import org.springframework.http.ResponseEntity;
 @EnableFeignClients
 public class OpenFeignForQuotersExtendedApplication {
 
-    @Autowired
     QuoterExtendProxy quoterExtendClient;
 
-//    public OpenFeignForQuotersExtendedApplication(QuoterExtendProxy quoterExtendClient) {
-//        this.quoterExtendClient = quoterExtendClient;
-//    }
+    public OpenFeignForQuotersExtendedApplication(QuoterExtendProxy quoterExtendClient) {
+        this.quoterExtendClient = quoterExtendClient;
+    }
 
     public static void main(String[] args) {
         SpringApplication.run(OpenFeignForQuotersExtendedApplication.class, args);
@@ -52,5 +50,6 @@ public class OpenFeignForQuotersExtendedApplication {
 
         // --->DELETE BY ID <---
         quoterExtendClient.deleteById(14);
+
     }
 }
