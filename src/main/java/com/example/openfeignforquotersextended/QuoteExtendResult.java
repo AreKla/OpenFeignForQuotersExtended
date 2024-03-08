@@ -1,4 +1,4 @@
-package com.example.openfeignforquotersextended;
-
-public record QuoteExtendResult(String quote) {
-}
+//package com.example.openfeignforquotersextended;
+//
+//public record QuoteExtendResult(String quote) {
+//}

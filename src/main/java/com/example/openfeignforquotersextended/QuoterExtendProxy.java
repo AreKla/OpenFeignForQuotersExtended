@@ -5,27 +5,29 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.List;
+
 @FeignClient(value = "quoter-extend-server-client")
 @Component
 interface QuoterExtendProxy {
 
     @GetMapping("/api")
-    String showAllQuotes();
+    List<QuoteExample> showAllQuotes();
 
     @GetMapping("/api/{id}")
-    String getById(@PathVariable("id") long id);
+    QuoteExample getById(@PathVariable("id") long id);
 
     @GetMapping("/api/random")
-    String getRandomQuote();
+    QuoteExample getRandomQuote();
 
     @GetMapping("/apiWithRequestParam")
-    String getByParam(@RequestParam("id") long id);
+    QuoteExample getByParam(@RequestParam("id") long id);
 
     @GetMapping("/apiWithHeader")
-    String getAllWithHeader();
+    List<QuoteExample> getAllWithHeader();
 
     @RequestMapping(method = RequestMethod.POST, value = "/api/quote")
-    ResponseEntity<QuoteExtendResponse> addQuote(@RequestBody QuoteExtendResult quote);
+    ResponseEntity<QuoteExample> addQuote(@RequestBody QuoteValue quote);
 
     @DeleteMapping("/api/quote/{id}")
     void deleteById(@PathVariable("id") long id);

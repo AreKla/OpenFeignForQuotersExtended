@@ -7,6 +7,8 @@ import org.springframework.cloud.openfeign.EnableFeignClients;
 import org.springframework.context.event.EventListener;
 import org.springframework.http.ResponseEntity;
 
+import java.util.List;
+
 @SpringBootApplication
 @EnableFeignClients
 public class OpenFeignForQuotersExtendedApplication {
@@ -25,31 +27,31 @@ public class OpenFeignForQuotersExtendedApplication {
     public void makeRequestToQuoterExtend() {
 
         // ---> SHOW ALL<---
-        String showAllQuotes = quoterExtendClient.showAllQuotes();
-        System.out.println(showAllQuotes);
+//        List<QuoteExample> quoteExamples = quoterExtendClient.showAllQuotes();
+//        quoteExamples.forEach(System.out::println);
 
         // --->GET BY ID<---
-        String byId = quoterExtendClient.getById(3);
-        System.out.println(byId);
+//        QuoteExample byId = quoterExtendClient.getById(1);
+//        System.out.println(byId);
 
         // --->GET RANDOM QUOTE<---
-        String randomQuote = quoterExtendClient.getRandomQuote();
-        System.out.println(randomQuote);
+//        QuoteExample randomQuote = quoterExtendClient.getRandomQuote();
+//        System.out.println(randomQuote);
 
         // --->GET BY PARAM<---
-        String byParam = quoterExtendClient.getByParam(3);
-        System.out.println(byParam);
+//        QuoteExample byParam = quoterExtendClient.getByParam(2);
+//        System.out.println(byParam);
 
         // --->GET BY HEADER<---
-        String withHeader = quoterExtendClient.getAllWithHeader();
-        System.out.println(withHeader);
+//        List<QuoteExample> allWithHeader = quoterExtendClient.getAllWithHeader();
+//        System.out.println(allWithHeader);
 
         // --->ADD QUOTE<---
-        QuoteExtendResult newQuote = new QuoteExtendResult("Is that OK?");
-        ResponseEntity<QuoteExtendResponse> responseEntity = quoterExtendClient.addQuote(newQuote);
+//        QuoteValue newQuoteValueAdder = new QuoteValue("Ne??w quote Value ADDER");
+//        ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
 
         // --->DELETE BY ID <---
-        quoterExtendClient.deleteById(14);
+//        quoterExtendClient.deleteById(2);
 
     }
 }
