@@ -39,7 +39,7 @@ public class OpenFeignForQuotersExtendedApplication {
 //        System.out.println(randomQuote);
 
         // --->GET BY PARAM<---
-//        QuoteExample byParam = quoterExtendClient.getByParam(2);
+//        QuoteExample byParam = quoterExtendClient.getByParam(5);
 //        System.out.println(byParam);
 
         // --->GET BY HEADER<---
@@ -47,11 +47,11 @@ public class OpenFeignForQuotersExtendedApplication {
 //        System.out.println(allWithHeader);
 
         // --->ADD QUOTE<---
-//        QuoteValue newQuoteValueAdder = new QuoteValue("Ne??w quote Value ADDER");
+//        QuoteValue newQuoteValueAdder = new QuoteValue(13L,"New quote ADDER");
 //        ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
 
         // --->DELETE BY ID <---
-//        quoterExtendClient.deleteById(2);
+//        quoterExtendClient.deleteById(10);
 
     }
 }

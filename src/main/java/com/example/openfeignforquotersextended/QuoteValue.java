@@ -1,4 +1,13 @@
 package com.example.openfeignforquotersextended;
 
-public record QuoteValue(String quote) {
+import org.springframework.context.annotation.ComponentScan;
+import org.springframework.stereotype.Component;
+
+@ComponentScan
+public record QuoteValue(Long id, String quote) {
+
+    @Override
+    public String toString() {
+        return id + " = " + quote;
+    }
 }
