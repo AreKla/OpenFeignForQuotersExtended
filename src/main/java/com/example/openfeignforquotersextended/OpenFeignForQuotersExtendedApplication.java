@@ -1,6 +1,5 @@
 package com.example.openfeignforquotersextended;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
@@ -28,8 +27,8 @@ public class OpenFeignForQuotersExtendedApplication {
     public void makeRequestToQuoterExtend() {
 
         // ---> SHOW ALL<---
-        List<QuoteExample> quoteExamples = quoterExtendClient.showAllQuotes();
-        quoteExamples.forEach(System.out::println);
+//        List<QuoteExample> quoteExamples = quoterExtendClient.showAllQuotes();
+//        quoteExamples.forEach(System.out::println);
 
         // --->GET BY ID<---
 //        QuoteExample byId = quoterExtendClient.getById(1);
@@ -40,7 +39,7 @@ public class OpenFeignForQuotersExtendedApplication {
 //        System.out.println(randomQuote);
 
         // --->GET BY PARAM<---
-//        QuoteExample byParam = quoterExtendClient.getByParam(2);
+//        QuoteExample byParam = quoterExtendClient.getByParam(5);
 //        System.out.println(byParam);
 
         // --->GET BY HEADER<---
@@ -48,11 +47,11 @@ public class OpenFeignForQuotersExtendedApplication {
 //        System.out.println(allWithHeader);
 
         // --->ADD QUOTE<---
-        QuoteValue newQuoteValueAdder = new QuoteValue(13L,"New quote ADDER");
-        ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
+//        QuoteValue newQuoteValueAdder = new QuoteValue(13L,"New quote ADDER");
+//        ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
 
         // --->DELETE BY ID <---
-//        quoterExtendClient.deleteById(13);
+//        quoterExtendClient.deleteById(10);
 
     }
 }
