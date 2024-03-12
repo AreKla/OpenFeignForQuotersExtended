@@ -5,9 +5,4 @@ import org.springframework.stereotype.Component;
 
 @ComponentScan
 public record QuoteValue(Long id, String quote) {
-
-    @Override
-    public String toString() {
-        return id + " = " + quote;
-    }
 }

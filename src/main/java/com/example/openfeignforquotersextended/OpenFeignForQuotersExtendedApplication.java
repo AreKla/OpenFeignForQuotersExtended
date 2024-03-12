@@ -44,7 +44,7 @@ public class OpenFeignForQuotersExtendedApplication {
 
         // --->GET BY HEADER<---
 //        List<QuoteExample> allWithHeader = quoterExtendClient.getAllWithHeader();
-//        System.out.println(allWithHeader);
+//        allWithHeader.forEach(System.out::println);
 
         // --->ADD QUOTE<---
 //        QuoteValue newQuoteValueAdder = new QuoteValue(13L,"New quote ADDER");
