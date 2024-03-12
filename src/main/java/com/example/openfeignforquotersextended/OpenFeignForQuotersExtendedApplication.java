@@ -27,8 +27,8 @@ public class OpenFeignForQuotersExtendedApplication {
     public void makeRequestToQuoterExtend() {
 
         // ---> SHOW ALL<---
-//        List<QuoteExample> quoteExamples = quoterExtendClient.showAllQuotes();
-//        quoteExamples.forEach(System.out::println);
+        List<QuoteExample> quoteExamples = quoterExtendClient.showAllQuotes();
+        quoteExamples.forEach(System.out::println);
 
         // --->GET BY ID<---
 //        QuoteExample byId = quoterExtendClient.getById(1);
@@ -46,8 +46,8 @@ public class OpenFeignForQuotersExtendedApplication {
 //        List<QuoteExample> allWithHeader = quoterExtendClient.getAllWithHeader();
 //        allWithHeader.forEach(System.out::println);
 
-        // --->ADD QUOTE<---
-//        QuoteValue newQuoteValueAdder = new QuoteValue(13L,"New quote ADDER");
+        // --->ADD QUOTE<--- Dlaczego nie dodaje na pierwsze wolne miejsce po usunięciu (użyciu metody deleteById)?
+//        QuoteValue newQuoteValueAdder = new QuoteValue(null,"New quote ADDER");
 //        ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
 
         // --->DELETE BY ID <---
