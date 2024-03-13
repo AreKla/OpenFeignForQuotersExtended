@@ -2,6 +2,7 @@ package com.example.openfeignforquotersextended;
 
 import feign.FeignException;
 import feign.RetryableException;
+import lombok.extern.log4j.Log4j2;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
@@ -11,8 +12,10 @@ import org.springframework.http.ResponseEntity;
 
 import java.util.List;
 
+
 @SpringBootApplication
 @EnableFeignClients
+@Log4j2
 public class OpenFeignForQuotersExtendedApplication {
 
     QuoterExtendProxy quoterExtendClient;
@@ -58,13 +61,13 @@ public class OpenFeignForQuotersExtendedApplication {
             quoterExtendClient.deleteById(13);
 
         } catch (FeignException.FeignClientException feignException) {
-            System.out.println("Client exception: " + feignException.status());
+            log.error("Client exception: " + feignException.status());
         } catch (FeignException.FeignServerException feignException) {
-            System.out.println("Server exception: " + feignException.status());
+            log.error("Server exception: " + feignException.status());
         } catch (RetryableException retryableException) {
-            System.out.println("RetryableException: " + retryableException.getMessage());
+            log.error("RetryableException: " + retryableException.getMessage());
         } catch (FeignException feignException) {
-            System.out.println(feignException.status() + " " + feignException.getMessage());
+            log.error(feignException.status() + " " + feignException.getMessage());
         }
 
     }
