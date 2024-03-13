@@ -27,31 +27,31 @@ public class OpenFeignForQuotersExtendedApplication {
     public void makeRequestToQuoterExtend() {
 
         // ---> SHOW ALL<---
-        List<QuoteExample> quoteExamples = quoterExtendClient.showAllQuotes();
-        quoteExamples.forEach(System.out::println);
+        List<QuoteExample> allQuotesResponse = quoterExtendClient.showAllQuotes();
+        allQuotesResponse.forEach(System.out::println);
 
         // --->GET BY ID<---
-//        QuoteExample byId = quoterExtendClient.getById(1);
-//        System.out.println(byId);
+        QuoteExample byIdResponse = quoterExtendClient.getById(3);
+        System.out.println(byIdResponse);
 
         // --->GET RANDOM QUOTE<---
-//        QuoteExample randomQuote = quoterExtendClient.getRandomQuote();
-//        System.out.println(randomQuote);
+        QuoteExample randomQuoteResponse = quoterExtendClient.getRandomQuote();
+        System.out.println(randomQuoteResponse);
 
         // --->GET BY PARAM<---
-//        QuoteExample byParam = quoterExtendClient.getByParam(5);
-//        System.out.println(byParam);
+        QuoteExample byParamResponse = quoterExtendClient.getByParam(7);
+        System.out.println(byParamResponse);
 
         // --->GET BY HEADER<---
-//        List<QuoteExample> allWithHeader = quoterExtendClient.getAllWithHeader();
-//        allWithHeader.forEach(System.out::println);
+        List<QuoteExample> allWithHeaderResponse = quoterExtendClient.getAllWithHeader();
+        allWithHeaderResponse.forEach(System.out::println);
 
-        // --->ADD QUOTE<--- Dlaczego nie dodaje na pierwsze wolne miejsce po usunięciu (użyciu metody deleteById)?
-//        QuoteValue newQuoteValueAdder = new QuoteValue(null,"New quote ADDER");
-//        ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
+        // --->ADD QUOTE<---
+        QuoteValue newQuoteValueAdder = new QuoteValue(null, "New quote ADDER");
+        ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
 
         // --->DELETE BY ID <---
-//        quoterExtendClient.deleteById(10);
+        quoterExtendClient.deleteById(13);
 
     }
 }
