@@ -1,6 +1,7 @@
 package com.example.openfeignforquotersextended;
 
 import feign.FeignException;
+import feign.RetryableException;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.context.event.ApplicationStartedEvent;
@@ -60,6 +61,8 @@ public class OpenFeignForQuotersExtendedApplication {
             System.out.println("Client exception: " + feignException.status());
         } catch (FeignException.FeignServerException feignException) {
             System.out.println("Server exception: " + feignException.status());
+        } catch (RetryableException retryableException) {
+            System.out.println("RetryableException: " + retryableException.getMessage());
         } catch (FeignException feignException) {
             System.out.println(feignException.status() + " " + feignException.getMessage());
         }
