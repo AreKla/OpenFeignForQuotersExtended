@@ -50,7 +50,7 @@ public class OpenFeignForQuotersExtendedApplication {
         QuoteValue newQuoteValueAdder = new QuoteValue(null, "New quote ADDER");
         ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
 
-        // --->DELETE BY ID <---
+        // --->DELETE BY ID<---
         quoterExtendClient.deleteById(13);
 
     }
