@@ -34,31 +34,26 @@ public class OpenFeignForQuotersExtendedApplication {
         try {
 
             // ---> SHOW ALL<---
-            List<QuoteExample> allQuotesResponse = quoterExtendClient.showAllQuotes();
-            allQuotesResponse.forEach(System.out::println);
+            log.info(quoterExtendClient.showAllQuotes());
 
             // --->GET BY ID<---
-            QuoteExample byIdResponse = quoterExtendClient.getById(3);
-            System.out.println(byIdResponse);
+            log.info(quoterExtendClient.getById(3));
 
             // --->GET RANDOM QUOTE<---
-            QuoteExample randomQuoteResponse = quoterExtendClient.getRandomQuote();
-            System.out.println(randomQuoteResponse);
+            log.info(quoterExtendClient.getRandomQuote());
 
             // --->GET BY PARAM<---
-            QuoteExample byParamResponse = quoterExtendClient.getByParam(7);
-            System.out.println(byParamResponse);
+            log.info(quoterExtendClient.getByParam(7));
 
             // --->GET BY HEADER<---
-            List<QuoteExample> allWithHeaderResponse = quoterExtendClient.getAllWithHeader();
-            allWithHeaderResponse.forEach(System.out::println);
+            log.info(quoterExtendClient.getAllWithHeader());
 
             // --->ADD QUOTE<---
-            QuoteValue newQuoteValueAdder = new QuoteValue(null, "New quote ADDER");
-            ResponseEntity<QuoteExample> response = quoterExtendClient.addQuote(newQuoteValueAdder);
+            QuoteValue newQuoteValueAdder = new QuoteValue(null, "New quote ADDER 15");
+            log.info(quoterExtendClient.addQuote(newQuoteValueAdder));
 
             // --->DELETE BY ID<---
-            quoterExtendClient.deleteById(13);
+            log.info(quoterExtendClient.deleteById(14));
 
         } catch (FeignException.FeignClientException feignException) {
             log.error("Client exception: " + feignException.status());

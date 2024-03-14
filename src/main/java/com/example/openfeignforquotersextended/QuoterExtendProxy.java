@@ -1,5 +1,6 @@
 package com.example.openfeignforquotersextended;
 
+import org.apache.logging.log4j.Marker;
 import org.springframework.cloud.openfeign.FeignClient;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Component;
@@ -30,6 +31,6 @@ interface QuoterExtendProxy {
     ResponseEntity<QuoteExample> addQuote(@RequestBody QuoteValue quote);
 
     @DeleteMapping("/api/quote/{id}")
-    void deleteById(@PathVariable("id") long id);
+    Marker deleteById(@PathVariable("id") long id);
 
 }
