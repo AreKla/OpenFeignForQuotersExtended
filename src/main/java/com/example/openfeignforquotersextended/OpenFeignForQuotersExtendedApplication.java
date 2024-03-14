@@ -32,29 +32,13 @@ public class OpenFeignForQuotersExtendedApplication {
     public void makeRequestToQuoterExtend() {
 
         try {
-
-            // ---> SHOW ALL<---
             log.info(quoterExtendClient.showAllQuotes());
-
-            // --->GET BY ID<---
             log.info(quoterExtendClient.getById(3));
-
-            // --->GET RANDOM QUOTE<---
             log.info(quoterExtendClient.getRandomQuote());
-
-            // --->GET BY PARAM<---
             log.info(quoterExtendClient.getByParam(7));
-
-            // --->GET BY HEADER<---
             log.info(quoterExtendClient.getAllWithHeader());
-
-            // --->ADD QUOTE<---
-            QuoteValue newQuoteValueAdder = new QuoteValue(null, "New quote ADDER 15");
-            log.info(quoterExtendClient.addQuote(newQuoteValueAdder));
-
-            // --->DELETE BY ID<---
-            log.info(quoterExtendClient.deleteById(14));
-
+            log.info(quoterExtendClient.addQuote(new QuoteValue(null, "New quote ADDER XXX")));
+            log.info(quoterExtendClient.deleteById(10));
         } catch (FeignException.FeignClientException feignException) {
             log.error("Client exception: " + feignException.status());
         } catch (FeignException.FeignServerException feignException) {
